@@ -40,9 +40,9 @@ public class CreateProductTest {
 
     @Test
     void modifyProduct() throws IOException {
-        Response<Product> response = productService.modifyProduct(product.withPrice(50))
+        Response<Product> response = productService.modifyProduct(new Product(4,"Fresh Meat",5000,"Food"))
                 .execute();
-        assertThat(response.body().getPrice(), equalTo(50));
+        assertThat(response.body().getTitle(), equalTo("Fresh Meat"));
     }
     @Test
     void getProductById() throws IOException {
@@ -58,10 +58,10 @@ public class CreateProductTest {
         assertThat(response.isSuccessful(), CoreMatchers.is(true));
     }
 
-//    @Test
-//    void deleteProduct() throws IOException {
-//        Response<ResponseBody> response = productService.deleteProduct(8)
-//                .execute();
-//        assertThat(response.isSuccessful(), CoreMatchers.is(true));
-//    }
+    @Test
+    void deleteProduct() throws IOException {
+        Response<ResponseBody> response = productService.deleteProduct(1)
+                .execute();
+        assertThat(response.isSuccessful(), CoreMatchers.is(true));
+    }
 }
