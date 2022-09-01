@@ -1,4 +1,4 @@
-package HW6;
+package HW6.db;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -26,11 +26,5 @@ public class ExampleTestMain {
 
         db.model.Categories selected = categoriesMapper.selectByPrimaryKey(2L);
         System.out.println("ID: " + selected.getId() + "\ntitle: " + selected.getTitle());
-
-        db.model.Categories categories = new db.model.Categories();
-        //categories.setId(Long.valueOf(3));
-        categories.setTitle("Test");
-        categoriesMapper.insert(categories);
-        sqlSession.commit();
     }
 }
