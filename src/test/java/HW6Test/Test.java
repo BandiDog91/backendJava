@@ -45,8 +45,6 @@ public class Test {
         db.model.Products products = new db.model.Products();
         products.setTitle("Fresh Meat");
         productsMapper.insert(products);
-        db.model.Products selected = productsMapper.selectByPrimaryKey(6L);
-
-        assertThat(selected.getTitle(),is("Fresh Meat"));
+        assertThat(products.getTitle(),is("Fresh Meat"));
     }
 }
